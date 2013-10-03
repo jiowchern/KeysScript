@@ -4,7 +4,7 @@ using System.Collections;
 
 public class CoreFramework : MonoBehaviour, Regulus.Utility.Console.IViewer, Regulus.Utility.Console.IInput
 {
-    Regulus.Game.IFramework _Application;
+    Regulus.Project.Crystal.Application _Application;
     private string _Input = "";
 
     public GameObject LogoStage;
@@ -33,9 +33,11 @@ public class CoreFramework : MonoBehaviour, Regulus.Utility.Console.IViewer, Reg
     }
     private void _ShowLogoStage()
     {
-        /*var stage = GameObject.Instantiate(LogoStage) as GameObject;
-        //stage.GetComponent<CreateSystem>();
-        _ChangeStage(stage);*/
+        var stage = GameObject.Instantiate(LogoStage) as GameObject;
+        var createSystem = stage.GetComponent<CreateSystem>();
+        
+        
+        _ChangeStage(stage);
     }
 
     System.Collections.Generic.Queue<string> _List = new System.Collections.Generic.Queue<string>();
