@@ -6,12 +6,37 @@ public class CoreFramework : MonoBehaviour, Regulus.Utility.Console.IViewer, Reg
 {
     Regulus.Game.IFramework _Application;
     private string _Input = "";
-    
+
+    public GameObject LogoStage;
+    public GameObject VerifyStage;
+    public GameObject ParkingStage;
+    public GameObject AdventureStage;
+    public GameObject BattleStage;
+
+    public GameObject _CurrentStage;
 	void Start () 
     {
-        _Application = new Regulus.Project.Crystal.Application(this, this, new Regulus.Game.IFramework[0]);
-        _Application.Launch();        
+        var app = new Regulus.Project.Crystal.Application(this, this);        
+        _Application = app;
+        _Application.Launch();
+
+        _ShowLogoStage();
 	}
+
+    void _ChangeStage(GameObject new_stage )
+    {
+        if (_CurrentStage != null)
+        {
+            GameObject.Destroy(_CurrentStage);
+        }
+        _CurrentStage = new_stage;
+    }
+    private void _ShowLogoStage()
+    {
+        /*var stage = GameObject.Instantiate(LogoStage) as GameObject;
+        //stage.GetComponent<CreateSystem>();
+        _ChangeStage(stage);*/
+    }
 
     System.Collections.Generic.Queue<string> _List = new System.Collections.Generic.Queue<string>();
 	// Update is called once per frame
