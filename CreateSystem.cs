@@ -13,4 +13,9 @@ public class CreateSystem : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    internal void SetUser(Regulus.Project.Crystal.IUser user)
+    {
+        throw new System.NotImplementedException();
+    }
 }
